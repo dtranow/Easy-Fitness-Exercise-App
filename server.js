@@ -19,26 +19,28 @@ const limiter = rateLimit({
 app.use('/api/chat', limiter)
 
 app.post('/api/chat', async (req, res) => {
-    const { message } = req.body
+  // Use prompt engineering to only allow exercise related questions
+  const prompt = 'Imagine yourself as an "exercise instructor" in the world of artificial intelligence, where your primary responsibility is to instruct users on exercises and fitness. Do not answer questions not related to fitness or exercising. Please limit your answer to less than 450 characters. The questions from your client is as follows: '
+  const { message } = prompt.concat(req.body)
 
-    try {
-        const response = await axios.post('https://api.openai.com/v1/chat/completions', {
-          model: 'gpt-3.5-turbo',
-          messages: [{ role: 'user', content: message }],
-          max_tokens: 150,
-          temperature: 0.6
-        }, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-          }
-        });
-        console.log(response.data.choices)
-        res.json({ reply: response.data.choices[0].message.content });
-      } catch (error) {
-        console.error('Error:', error.response.data);
-      }
-    });
+  try {
+      const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+        model: 'gpt-3.5-turbo',
+        messages: [{ role: 'user', content: message }],
+        max_tokens: 500,
+        temperature: 0.6
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+        }
+      });
+      console.log(response.data.choices)
+      res.json({ reply: response.data.choices[0].message.content });
+    } catch (error) {
+      console.error('Error:', error.response.data);
+    }
+  });
 
 app.listen(port, () => {
     console.log(`server is live on port ${port}`)
