@@ -11,25 +11,9 @@ const Chat = ({ isOpen, toggleChat, darkMode }) => {
     chatRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [chat])
 
-  function exerciseRelated(message){
-    const exerciseKeywords = [
-      'exercise', 'exercises', 'workout', 'fitness', 'muscle', 'gym', 'training', 'strength', 'cardio', 
-      'yoga', 'stretch', 'bodybuilding', 'chest', 'arms', 'back', 'legs', 'weight', 'abs', 'core',
-      'calisthenics', 'HIIT', 'aerobics', 'powerlifting', 'crossfit', 'endurance', 'mobility',
-      'flexibility', 'plyometrics', 'kettlebell', 'dumbbell', 'barbell', 'resistance', 'squat',
-      'deadlift', 'bench press', 'pull up', 'push up','warm-up', 'overhead press', 'row', 'lunge']
-    return exerciseKeywords.some(word => message.toLowerCase().includes(word))
-  }
 
   async function handleSend() {
     if(!message) return
-
-    if(!exerciseRelated(message)){
-      const newChat = [...chat, { user: 'bot', text: 'Please ask an exercise-related question.'}]
-      setChat(newChat)
-      setMessage('')
-      return
-    }
 
     const newChat = [...chat, { user: 'user', text: message }]
     setChat(newChat)
