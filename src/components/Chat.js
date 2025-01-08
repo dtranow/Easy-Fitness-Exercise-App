@@ -11,10 +11,10 @@ const Chat = ({ isOpen, toggleChat, darkMode }) => {
     chatRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [chat])
 
-
   async function handleSend() {
     if(!message) return
-
+    console.log("User input:", message)
+    setMessage('')
     const newChat = [...chat, { user: 'user', text: message }]
     setChat(newChat)
     try{
@@ -29,7 +29,6 @@ const Chat = ({ isOpen, toggleChat, darkMode }) => {
         setChat([...newChat, { user: 'bot', text: 'An error has occurred.' }])
       }
     }
-    setMessage('')
   }
 
   return (
@@ -55,7 +54,7 @@ const Chat = ({ isOpen, toggleChat, darkMode }) => {
             position: 'fixed', bottom: '120px', right: '40px', width: '550px',
             height: '600px', backgroundColor: darkMode ? '#D3D3D3' : '#f9f9f9',
             border: '1px solid #ccc', borderRadius: '8px', display: 'flex',
-            flexDirection: 'column', zIndex: 999
+            flexDirection: 'column', zIndex: 999, overflowY: 'auto', pointerEvents: 'auto'
           }}>
           <Box sx={{ flex: 1, overflowY: 'auto', mb: '12px', p: '8px' }}>
             <Stack spacing={2}>
@@ -64,12 +63,16 @@ const Chat = ({ isOpen, toggleChat, darkMode }) => {
                   key={index}
                   align={msg.user === 'user' ? 'right' : 'left'} 
                   sx={{
+                    flexGrow: 1,
                     backgroundColor: msg.user === 'user' ? '#cfe9ff' : '#e5e5e5',
                     padding: '8px',
                     border: '3px solid #ccc',
                     borderRadius: '12px',
                     alignSelf: msg.user === 'user' ? 'flex-end' : 'flex-start',
-                    color: 'black'
+                    color: 'black',
+                    textAlign: 'left',
+                    wordWrap: 'break-word',
+                    maxWidth: '85%'
                   }}>
                   {msg.text}
                 </Typography>
@@ -82,6 +85,12 @@ const Chat = ({ isOpen, toggleChat, darkMode }) => {
               value={message}
               placeholder='Ask any exercise questions'
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) =>{
+                if(e.key === 'Enter'){
+                  handleSend();
+                  e.preventDefault();
+                }
+              }}
               style={{ width: '75%' }}
             />
             <Button 
