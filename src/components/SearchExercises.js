@@ -38,7 +38,9 @@ const SearchExercises = ({ bodyPart, setExercises, setBodyPart }) => {
       <Box position='relative' mb='82px'>
         <TextField height='64px' type='text' value={search} onChange={(e) =>
           setSearch(e.target.value.toLowerCase())} placeholder='Search Exercises' sx={{width: 
-          { lg: '600px', xs: '400px'}, backgroundColor:'#fff', borderRadius:'24px', input: { fontSize:'18px'}}}/>
+          { lg: '600px', xs: '400px'}, backgroundColor:'#fff', borderRadius:'24px', input: { fontSize:'18px'},
+          '& .MuiOutlinedInput-root': { borderRadius: '24px' , '&.Mui-focused fieldset': { borderColor: 'red' }}
+          }}/>
         <Button onClick={handleSearch} className="search-btn" sx={{bgcolor:'red', color:'#fff', width: {lg:'120px', xs: '64px'}, 
           height:'60px', fontSize: { lg: '18px', xs: '12px'}, position:'absolute', right:'0'}}>
           Search
