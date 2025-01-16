@@ -38,7 +38,7 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyPart, setSearc
       </Typography>
       
       <Box ref={scrollContainerRef} sx={{ display: 'flex', overflowX: 'scroll', scrollBehavior: 'smooth', paddingY: '15px',
-        boxShadow: '0px 1.2px 5px rgba(0,0,0,0.09)', borderRadius: '10px', '&::-webkit-scrollbar': { height: '5px' },
+        boxShadow: '0px 4px 6px rgba(0,0,0,0.05)', borderRadius: '10px', '&::-webkit-scrollbar': { height: '6px' },
           '&::-webkit-scrollbar-thumb': { backgroundColor: '#888', borderRadius: '8px', transition: 'background-color 0.6s'},
           '&::-webkit-scrollbar-thumb:hover': { backgroundColor: '#555' }
         }}>
