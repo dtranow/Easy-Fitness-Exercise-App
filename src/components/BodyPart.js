@@ -3,13 +3,14 @@ import { Stack, Typography } from '@mui/material'
 
 import Icon from '../assets/assets/icons/gym.png'
 
-const BodyPart = ({ part, bodyPart, setBodyPart }) => {
+const BodyPart = ({ part, bodyPart, setBodyPart, setSearchTitle }) => {
   return (
     <Stack className='bodyPart-card' type="button" justifyContent='center' alignItems='center'
         sx={{ borderTop: bodyPart === part ? '4px solid #ff2625' : '',
             backgroundColor: '#fff', width: '250px', height: '250px', cursor:'pointer', gap:'42px',
             borderBottomLeftRadius:'18px'
         }} onClick={() => {
+          setSearchTitle(part)
           setBodyPart(part)
           window.scrollTo({top: 1500, behavior:'smooth'})
           }}>
