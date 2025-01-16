@@ -37,7 +37,11 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyPart }) => {
         <img src={LeftArrowIcon} alt="Left arrow" />
       </Typography>
       
-      <Box ref={scrollContainerRef} sx={{ display: 'flex', overflowX: 'scroll', scrollBehavior: 'smooth' }}>
+      <Box ref={scrollContainerRef} sx={{ display: 'flex', overflowX: 'scroll', scrollBehavior: 'smooth', paddingY: '15px',
+        boxShadow: '0px 1.2px 5px rgba(0,0,0,0.09)', borderRadius: '10px', '&::-webkit-scrollbar': { height: '5px' },
+          '&::-webkit-scrollbar-thumb': { backgroundColor: '#888', borderRadius: '8px', transition: 'background-color 0.6s'},
+          '&::-webkit-scrollbar-thumb:hover': { backgroundColor: '#555' }
+        }}>
         {data.map((part) => (
           <Box
             key={part.id || part}
