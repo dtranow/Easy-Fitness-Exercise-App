@@ -8,7 +8,6 @@ const BodyPart = ({ part, bodyPart, setBodyPart, setSearchTitle }) => {
     <Stack className='bodyPart-card' type="button" justifyContent='center' alignItems='center'
         sx={{ borderTop: bodyPart === part ? '4px solid #ff2625' : '',
             backgroundColor: '#fff', width: '250px', height: '250px', cursor:'pointer', gap:'42px',
-            borderBottomLeftRadius:'18px'
         }} onClick={() => {
           setSearchTitle(part)
           setBodyPart(part)
