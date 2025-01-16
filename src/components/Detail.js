@@ -1,16 +1,13 @@
 import React from 'react'
 import { Stack, Typography, Button } from '@mui/material'
 
-import TargetImg from '../assets/assets/icons/target.png'
 import BodyPartImg from '../assets/assets/icons/body-part.png'
 import EquipmentImg from '../assets/assets/icons/equipment.png'
-import ExerciseDetail from '../pages/ExerciseDetail'
 
 const Detail = ({ exerciseDetails }) => {
     const { name, bodyPart, target, equipment, gifUrl, instructions } = exerciseDetails
     console.log(exerciseDetails)
     const instructionsText = Array.isArray(instructions) ? instructions.join(' ') : instructions
-
 
     const information = [
         {
