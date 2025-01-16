@@ -6,7 +6,7 @@ import ExerciseCard from './ExerciseCard';
 import LeftArrowIcon from '../assets/assets/icons/left-arrow.png';
 import RightArrowIcon from '../assets/assets/icons/right-arrow.png';
 
-const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyPart }) => {
+const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyPart, setSearchTitle }) => {
   const scrollContainerRef = useRef(null);
 
   const scrollLeft = () => {
@@ -49,7 +49,7 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyPart }) => {
             partId={part.id || part}
             m="0 36px">
               {isBodyPart ? (
-                <BodyPart part={part} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+                <BodyPart part={part} bodyPart={bodyPart} setBodyPart={setBodyPart} setSearchTitle={setSearchTitle}/>
               ) : (
                 <ExerciseCard exercise={part} />
               )}
