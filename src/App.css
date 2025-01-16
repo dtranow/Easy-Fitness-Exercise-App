@@ -1,5 +1,5 @@
 :root {
-  --primary-bg-color: #fffafbc9;
+  --primary-bg-color: #f1eeeed3;
   --primary-text-color: black;
 }
 
@@ -18,7 +18,7 @@ h1, h2, h3, p {
 }
 
 [data-theme="dark"] {
-  --primary-bg-color: linear-gradient(135deg, #1b2735, #151a2c);
+  --primary-bg-color: linear-gradient(135deg, #2f3a47, #202c39); /* Dark Slate Gray */
   --primary-text-color: #fffafbec;
 }
 
@@ -86,8 +86,15 @@ body[data-theme="dark"] {
   }
   
   .detail-image {
-    width: 729px;
-    height: 742px;
+    width: 711px;
+    height: 722px;
+    filter: brightness(97%);
+    filter: contrast(93%);
+  }
+
+  [data-theme=dark] .detail-image {
+    filter: brightness(82%);
+    filter: contrast(82%);
   }
   
   .hero-banner-img {
@@ -100,40 +107,55 @@ body[data-theme="dark"] {
   
   }
   
+  [data-theme=dark] .exercise-card {
+    filter: brightness(82%);
+    filter: contrast(82%);
+  }
+
   .exercise-card {
-    width: 400px;
-    height: 445px;
+    width: 402px;
+    height: 438px;
     background: #fff;
     border-top: 4px solid #FF2625;
-    border-bottom-left-radius: 20px;
     text-decoration: none;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    padding-bottom: 20px;
-    transform: scale(1, 1);
+    padding-bottom: 18px;
+    transform: scale(1);
     transition: 0.3s all ease-in-out;
     position: relative;
+    border-radius: 6px;
     z-index: 11;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
   .exercise-card:hover {
-    transform: scale(1.02);
+    transform: scale(1.04);
     z-index: 99;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
   
   .exercise-card img {
-    height: 326px;
+    height: 318px;
   }
   
+  [data-theme=dark] .bodyPart-card {
+    filter: brightness(82%);
+    filter: contrast(82%);
+  }
+
   .bodyPart-card {
     transform: scale(1, 1);
     transition: 0.3s all ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(130deg, rgba(245, 245, 245, 0.1), rgba(220, 220, 220, 0.15)); /* Grayish Off-White */
   }
   
-  .exercise-card:hover,
   .bodyPart-card:hover {
-    transform: scale(1.1, 1.1);
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
   
   .search-btn:hover {
@@ -146,9 +168,15 @@ body[data-theme="dark"] {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 387px;
-    height: 381px;
+    width: 392px;
+    height: 401px;
     text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .exercise-video:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
   }
   
   @media screen and (max-width:1200px) {
@@ -172,18 +200,18 @@ body[data-theme="dark"] {
     }
   
     .exercise-card {
-      width: 320px;
+      width: 322px;
     }
   
     .exercise-video {
-      width: 320px;
-      height: 300px;
+      width: 322px;
+      height: 311px;
     }
   
   }
   
   @media screen and (max-width:400px) {
     .exercise-card {
-      width: 280px;
+      width: 282px;
     }
   }
