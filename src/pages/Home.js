@@ -9,6 +9,8 @@ export default function Home({ darkMode }) {
   const [exercises, setExercises] = useState([])
   const [bodyPart, setBodyPart] = useState('all')
   const [isOpen, setIsOpen] = useState(false)
+  const [searchTitle, setSearchTitle] = useState('all')
+
 
   const ToggleChat = () => {
     setIsOpen(!isOpen)
@@ -21,8 +23,8 @@ export default function Home({ darkMode }) {
   return (
     <Box>
         <HeroBanner toggleChat={ToggleChat}/>
-        <SearchExercises bodyPart={bodyPart} setExercises={setExercises} setBodyPart={setBodyPart}/>
-        <Exercises bodyPart={bodyPart} setExercises={setExercises} exercises={exercises} darkMode={darkMode}/>
+        <SearchExercises bodyPart={bodyPart} setExercises={setExercises} setBodyPart={setBodyPart} setSearchTitle={setSearchTitle}/>
+        <Exercises bodyPart={bodyPart} setExercises={setExercises} exercises={exercises} darkMode={darkMode} searchTitle={searchTitle}/>
         <Chat toggleChat={ToggleChat} isOpen={isOpen} darkMode={darkMode}/>
     </Box>
   )
