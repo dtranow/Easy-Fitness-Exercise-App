@@ -35,7 +35,7 @@ const Detail = ({ exerciseDetails }) => {
             </Typography>
             {information.map((info) => (
                 <Stack key={info.name} direction='row' alignItems='center' gap='16px'>
-                    <Button sx={{ backgroundColor:'white', borderRadius:'50%', height:'80px', width:'80px'}}>
+                    <Button sx={{ backgroundColor:'#ececec', borderRadius:'50%', height:'80px', width:'80px'}}>
                         <img src={info.icon} alt={bodyPart}/>
                     </Button>
                     <Typography textTransform='capitalize' variant='h6' ml='24px'>
