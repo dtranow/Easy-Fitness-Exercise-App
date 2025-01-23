@@ -72,7 +72,8 @@ const Chat = ({ isOpen, toggleChat, darkMode }) => {
                     color: 'black',
                     textAlign: 'left',
                     wordWrap: 'break-word',
-                    maxWidth: '85%'
+                    maxWidth: '85%',
+                    textShadow: 'none'
                   }}>
                   {msg.text}
                 </Typography>
