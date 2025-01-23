@@ -1,5 +1,4 @@
 # Easy Fitness
-<br />
 
 ## Overview
 **Easy Fitness** is an AI-enhanced exercise guide application that helps users explore exercises, learn techniques, and ask exercise-related questions through an integrated AI chatbot.
@@ -16,6 +15,7 @@
 ## Screenshots & GIFs
 
 ### 1. Home Page
+<br />
 
 ![homepageanddarkmode-o](https://github.com/user-attachments/assets/cd788a3a-b2b1-4d5a-87a1-46497d1575fb)
 *Shows the homepage with and without the dark mode toggled.*
@@ -30,6 +30,7 @@
 <br />
 
 ### 2. Chat Feature
+<br />
 
 ![chatfeature-o](https://github.com/user-attachments/assets/f0508a5c-b248-490e-8ca0-a0bcedf33a2b)
 *An interactive chat interface allowing users to ask exercise-related questions.*
@@ -38,6 +39,7 @@
 <br />
 
 ### 3. Exercise Details Page
+<br />
 
 ![exercisedetailspage-o](https://github.com/user-attachments/assets/c99892c3-1e2e-4e2c-843b-be61de95305c)
 *Shows the detailed exercise information including instructions, equipment, GIFs, YouTube instructionals, and similar exercises.*
